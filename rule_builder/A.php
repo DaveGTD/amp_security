@@ -583,7 +583,8 @@ $('.set-filters').on('click', function() {
 
 function myFunction()
 {
-   var result = $('#builder').queryBuilder('getSQL', 'question_mark');
+   var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
+   // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
    console.log("RESULT: " + JSON.stringify(result));
 }
  

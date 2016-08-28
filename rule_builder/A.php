@@ -584,7 +584,7 @@ $('.set-filters').on('click', function() {
 function myFunction()
 {
    var result = $('#builder').queryBuilder('getSQL', 'question_mark');
-   console.log("RESULT: " + result);
+   console.log("RESULT: " + JSON.stringify(result));
 }
  
 

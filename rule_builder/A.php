@@ -579,5 +579,19 @@ $('.set-filters').on('click', function() {
 });
 </script>
 
+<script>
+
+function myFunction()
+{
+   var result = $('#builder-import_export').queryBuilder('getSQL', 'question_mark');
+   console.log("RESULT: " + result);
+}
+ 
+
+
+</script>
+
+<button onclick="myFunction()"> Click Me </button>
+
 </body>
 </html>

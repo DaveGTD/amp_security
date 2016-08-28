@@ -583,7 +583,7 @@ $('.set-filters').on('click', function() {
 
 function myFunction()
 {
-   var result = $('#builder-import_export').queryBuilder('getSQL', 'question_mark');
+   var result = $('#builder').queryBuilder('getSQL', 'question_mark');
    console.log("RESULT: " + result);
 }
  

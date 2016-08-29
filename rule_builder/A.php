@@ -586,13 +586,52 @@ function myFunction()
    var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
    // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
    console.log("RESULT: " + JSON.stringify(result));
-}
- 
 
+   var mongo_result = $('#builder').queryBuilder('getMongo');
+   console.log("MONGO: " JSON.stringify(mongo_result));
+
+}
+
+function postQuery()
+{
+  var mongo_result = $('#builder').queryBuilder('getMongo');
+  post('B.php', {name: 'Dave'});
+}
+
+ 
+function post(path, params, method)
+{
+    method = method || "post"; // Set method to post by default if not specified.
+
+    // The rest of this code assumes you are not using a library.
+    // It can be made less wordy if you use one.
+    var form = document.createElement("form");
+    form.setAttribute("method", method);
+    form.setAttribute("action", path);
+
+    for(var key in params) {
+        if(params.hasOwnProperty(key)) {
+            var hiddenField = document.createElement("input");
+            hiddenField.setAttribute("type", "hidden");
+            hiddenField.setAttribute("name", key);
+            hiddenField.setAttribute("value", params[key]);
+
+            form.appendChild(hiddenField);
+         }
+    }
+
+    document.body.appendChild(form);
+    form.submit();
+}
 
 </script>
 
-<button onclick="myFunction()"> Click Me </button>
+<button onclick="myFunction()"> Click Me </button> <BR><BR>
+
+<form action="B.php" method="POST">
+<input type="submit" onclick="postQuery()"/>
+</form>
+
 
 </body>
 </html>

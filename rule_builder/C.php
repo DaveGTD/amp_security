@@ -116,21 +116,6 @@
 
 
 
-<?php 
-$something = 20;
-?>
-
-<script>
-
-// window.onload = log;
-function log()
-{
-	console.log("Test Message: " + <?php echo $something ?>);
-}
-
-</script>
-
-
 
 <script>
 $('[data-toggle="tooltip"]').tooltip();
@@ -145,8 +130,7 @@ var options = {
 
   optgroups: {
     core: {
-      en: 'Core',
-      fr: 'Coeur'
+      en: 'amp'
     }
   },
 
@@ -185,240 +169,29 @@ var options = {
   ],
 
   filters: [
-  /*
-   * basic
-   */
+
   {
     id: 'name',
     label: {
-      en: 'Name',
-      fr: 'Nom'
+      en: 'Name'
     },
     type: 'string',
-    optgroup: 'core',
-    default_value: 'Mistic',
-    size: 30,
-    unique: true
+    optgroup: 'amp',
+    default_value: '',
+    size: 150
   },
-  /*
-   * textarea
-   */
+
   {
-    id: 'bson',
-    label: 'BSON',
-    type: 'string',
-    input: 'textarea',
-    operators: ['equal'],
-    size: 30,
-    rows: 3
-  },
-  /*
-   * checkbox
-   */
-  {
-    id: 'category',
-    label: 'Category',
-    type: 'integer',
-    input: 'checkbox',
-    optgroup: 'core',
-    values: {
-      1: 'Books',
-      2: 'Movies',
-      3: 'Music',
-      4: 'Tools',
-      5: 'Goodies',
-      6: 'Clothes'
-    },
-    colors: {
-      1: 'foo',
-      2: 'warning',
-      5: 'success'
-    },
-    operators: ['in', 'not_in', 'equal', 'not_equal', 'is_null', 'is_not_null']
-  },
-  /*
-   * select
-   */
-  {
-    id: 'continent',
-    label: 'Continent',
-    type: 'string',
-    input: 'select',
-    optgroup: 'core',
-    placeholder: 'Select something',
-    values: {
-      'eur': 'Europe',
-      'asia': 'Asia',
-      'oce': 'Oceania',
-      'afr': 'Africa',
-      'na': 'North America',
-      'sa': 'South America'
-    },
-    operators: ['equal', 'not_equal', 'is_null', 'is_not_null']
-  },
-  /*
-   * Selectize
-   */
-  {
-    id: 'state',
-    label: 'State',
-    type: 'string',
-    input: 'select',
-    multiple: true,
-    plugin: 'selectize',
+    id: 'date',
+    label: 'datetimepicker',
+    type: 'datetime',
+    optgroup: 'amp'
+    plugin: 'datetimepicker',
     plugin_config: {
-      valueField: 'id',
-      labelField: 'name',
-      searchField: 'name',
-      sortField: 'name',
-      options: [
-        { id: "AL", name: "Alabama" },
-        { id: "AK", name: "Alaska" },
-        { id: "AZ", name: "Arizona" },
-        { id: "AR", name: "Arkansas" },
-        { id: "CA", name: "California" },
-        { id: "CO", name: "Colorado" },
-        { id: "CT", name: "Connecticut" },
-        { id: "DE", name: "Delaware" },
-        { id: "DC", name: "District of Columbia" },
-        { id: "FL", name: "Florida" },
-        { id: "GA", name: "Georgia" },
-        { id: "HI", name: "Hawaii" },
-        { id: "ID", name: "Idaho" }
-      ]
-    },
-    valueSetter: function(rule, value) {
-      rule.$el.find('.rule-value-container select')[0].selectize.setValue(value);
     }
-  },
-  /*
-   * radio
-   */
-  {
-    id: 'in_stock',
-    label: 'In stock',
-    type: 'integer',
-    input: 'radio',
-    optgroup: 'plugin',
-    values: {
-      1: 'Yes',
-      0: 'No'
-    },
-    operators: ['equal']
-  },
-  /*
-   * double
-   */
-  {
-    id: 'price',
-    label: 'Price',
-    type: 'double',
-    size: 5,
-    validation: {
-      min: 0,
-      step: 0.01
-    },
-    data: {
-      class: 'com.example.PriceTag'
-    }
-  },
-  /*
-   * slider
-   */
-  {
-    id: 'rate',
-    label: 'Rate',
-    type: 'integer',
-    validation: {
-      min: 0,
-      max: 100
-    },
-    plugin: 'slider',
-    plugin_config: {
-      min: 0,
-      max: 100,
-      value: 0
-    },
-    onAfterSetValue: function(rule, value) {
-      var input = rule.$el.find('.rule-value-container input');
-      input.slider('setValue', value);
-      input.val(value); // don't know why I need it
-    }
-  },
-  /*
-   * placeholder and regex validation
-   */
-  {
-    id: 'id',
-    label: 'Identifier',
-    type: 'string',
-    optgroup: 'plugin',
-    placeholder: '____-____-____',
-    size: 14,
-    operators: ['equal', 'not_equal'],
-    validation: {
-      format: /^.{4}-.{4}-.{4}$/
-    }
-  },
-  /*
-   * custom input
-   */
-  {
-    id: 'coord',
-    label: 'Coordinates',
-    type: 'string',
-    default_value: 'C.5',
-    description: 'The letter is the cadran identifier:\
-<ul>\
-  <li><b>A</b>: alpha</li>\
-  <li><b>B</b>: beta</li>\
-  <li><b>C</b>: gamma</li>\
-</ul>',
-    validation: {
-      format: /^[A-C]{1}.[1-6]{1}$/
-    },
-    input: function(rule) {
-      var $container = rule.$el.find('.rule-value-container');
+  }
 
-      $container.on('change', '[name=coord_1]', function(){
-        var h = '';
-
-        switch ($(this).val()) {
-          case 'A':
-            h = '<option value="-1">-</option> <option value="1">1</option> <option value="2">2</option>';
-            break;
-          case 'B':
-            h = '<option value="-1">-</option> <option value="3">3</option> <option value="4">4</option>';
-            break;
-          case 'C':
-            h = '<option value="-1">-</option> <option value="5">5</option> <option value="6">6</option>';
-            break;
-        }
-
-        $container.find('[name=coord_2]').html(h).toggle(h!='');
-      });
-
-      return '\
-      <select name="coord_1" class="form-control"> \
-        <option value="-1">-</option> \
-        <option value="A">A</option> \
-        <option value="B">B</option> \
-        <option value="C">C</option> \
-      </select> \
-      <select name="coord_2" class="form-control" style="display:none;"></select>';
-    },
-    valueParser: function(rule, value) {
-      return rule.$el.find('[name=coord_1]').val()
-        +'.'+rule.$el.find('[name=coord_2]').val();
-    },
-    valueSetter: function(rule, value) {
-      if (rule.operator.nb_inputs !== 0) {
-        var val = value.split('.');
-        rule.$el.find('[name=coord_1]').val(val[0]).trigger('change');
-        rule.$el.find('[name=coord_2]').val(val[1]);
-      }
-    }
-  }]
+  ]
 };
 
 // init
@@ -577,61 +350,21 @@ $('.set-filters').on('click', function() {
 
   // also available : 'setFilters'
 });
+
+
+$('#builder').on('afterCreateRuleInput.queryBuilder', function(e, rule) {
+    if (rule.filter.id === 'date') {
+      var $input = rule.$el.find('.rule-value-container [name*=_value_]');
+      $input.on('dp.change', function() {
+          $input.trigger('change');
+      });
+    }
+});
+
 </script>
 
 <script>
 
-/*
-
-function myFunction()
-{
-   var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
-   // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
-   console.log("RESULT: " + JSON.stringify(result));
-
-   var mongo_result = $('#builder').queryBuilder('getMongo');
-   console.log("MONGO: " JSON.stringify(mongo_result));
-
-}
-
-function postQuery()
-{
-  var mongo_result = $('#builder').queryBuilder('getMongo');
-  // post('B.php', {name: 'Dave'});
-  $.post("B.php", {name:"John", time: "3pm"});
-}
-
- 
-function post(path, params, method)
-{
-    method = method || "post"; // Set method to post by default if not specified.
-
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-
-    for(var key in params) {
-        if(params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
-
-            form.appendChild(hiddenField);
-         }
-    }
-
-    document.body.appendChild(form);
-    form.submit();
-}
-
-$("#form_B").submit(function() {
-    var name = "Dave";
-    $('#hidden_query').val(name);
-});
-*/
 
 function doThis()
 {
@@ -639,6 +372,7 @@ function doThis()
   document.getElementById("hidden_query").value = JSON.stringify(mongo_result);
 
 };
+
 
 </script>
 

@@ -595,7 +595,22 @@ $('.set-filters').on('click', function() {
 function postQuery()
 {
   var mongo_result = $('#builder').queryBuilder('getMongo');
-  post('B.php', {name: 'Dave', value: 'something'});
+  // post('B.php', {name: 'Dave'});
+
+        e.preventDefault();
+ 
+        $.ajax({
+            type:'POST',
+            url:'B.php',
+            dataType:'json',
+            data:
+            {
+              'name': 'Dave', 
+              'age': 25
+            }
+       
+              });
+    
 }
 
  

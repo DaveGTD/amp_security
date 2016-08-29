@@ -596,21 +596,7 @@ function postQuery()
 {
   var mongo_result = $('#builder').queryBuilder('getMongo');
   // post('B.php', {name: 'Dave'});
-
-        e.preventDefault();
- 
-        $.ajax({
-            type:'POST',
-            url:'B.php',
-            dataType:'json',
-            data:
-            {
-              'name': 'Dave', 
-              'age': 25
-            }
-       
-              });
-    
+  $.post("B.php", {name:"John", time: "3pm"});
 }
 
  
@@ -640,6 +626,11 @@ function post(path, params, method)
 }
 
 </script>
+
+<!--
+<form action="B.php" method="POST">
+
+-->
 
 <button onclick="postQuery()"> Click Me </button> <BR><BR>
 

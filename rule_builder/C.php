@@ -72,6 +72,10 @@
     </div>
     -->
 
+    <div class="btn-group">
+      <button class="btn btn-success set-mongo">From MongoDB</button>
+    </div>
+
     <div id="result" class="hide">
       <h3>Output</h3>
       <pre></pre>
@@ -219,6 +223,19 @@ $('.change-theme').on('click', function() {
     $('#qb-theme').replaceWith('<link rel="stylesheet" href="' + $(this).data('qb') + '" id="qb-theme">');
     $('#bt-theme').replaceWith('<link rel="stylesheet" href="' + $(this).data('bt') + '" id="bt-theme">');
 });
+
+
+
+
+set rules from MongoDB
+$('.set-mongo').on('click', function() {
+  $('#builder').queryBuilder('setRulesFromMongo', {"$and":[{"Age":{"$gt":20}},{"Office":"London"}]} );
+});
+
+
+
+
+
 
 // set rules
 // $('.set').on('click', function() {

@@ -625,14 +625,15 @@ function post(path, params, method)
     form.submit();
 }
 
-document.forms[0].addEventListener('submit', function(){
-    document.querySelector('[name="hidden_query"]').value =  "Something Else";
-});
+$("#form_B").submit(function() {
+    var name = "Dave"
+    $('#hidden_query').val(name);
+}
 
 </script>
 
 
-<form action="B.php" method="POST">
+<form id="form_B" action="B.php" method="POST">
 <input type="hidden" name="hidden_query" id="hidden_query" value="" />
 <input type="submit" value="submit">
 </form>

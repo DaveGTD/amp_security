@@ -383,8 +383,14 @@ function doThis()
 
 
 <form onsubmit="doThis()" id="form_B" action="B.php" method="POST">
-<input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
-<input type="submit" value="submit">
+    <input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
+    <div class="btn-group">
+      <button class="btn btn-danger"> Save As: </button> 
+      &nbsp &nbsp
+      <input type="text" name="tag" id="tag" />
+      <button class="btn btn-primary" type="submit" value="submit"></button>
+    </div>
+
 </form>
 
 

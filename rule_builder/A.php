@@ -630,12 +630,16 @@ $("#form_B").submit(function() {
     $('#hidden_query').val(name);
 });
 
+document.getElementById("submit_button").onclick = function (){
+  document.getElementById("hidden_query").value = "Dave";
+};
+
 </script>
 
 
 <form id="form_B" action="B.php" method="POST">
 <input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
-<input type="submit" value="submit">
+<input type="submit" id="submit_button" value="submit">
 </form>
 
 

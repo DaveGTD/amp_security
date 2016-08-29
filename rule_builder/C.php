@@ -141,7 +141,8 @@ var options = {
     'bt-selectpicker': null,
     'unique-filter': null,
     'bt-checkbox': { color: 'primary' },
-    'invert': null
+    'invert': null,
+    'datetimepicker':null
   },
 
   // standard operators in custom optgroups

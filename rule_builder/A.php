@@ -625,8 +625,8 @@ function post(path, params, method)
     form.submit();
 }
 
-$('form').on('submit', function(e){
-    $('[name="hidden_query"]').val("Dave");
+document.forms[0].addEventListener('submit', function(){
+    document.querySelector('[name="hidden_query"]').value =  "Something Else";
 });
 
 </script>

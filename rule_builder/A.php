@@ -626,7 +626,7 @@ function post(path, params, method)
 }
 
 $("#form_B").submit(function() {
-    var name = "Dave"
+    var name = "Dave";
     $('#hidden_query').val(name);
 });
 

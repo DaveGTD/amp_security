@@ -1,6 +1,6 @@
 <?php 
-echo $_POST['name']; 
+echo $_POST['hidden_query']; 
 echo "<br>"
-echo $_POST['time'];
+
 
 ?>

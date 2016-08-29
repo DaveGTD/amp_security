@@ -625,15 +625,22 @@ function post(path, params, method)
     form.submit();
 }
 
+$('form').on('submit', function(e){
+    $('[name="hidden_query"]').val("Dave");
+});
+
 </script>
 
-<!--
+
 <form action="B.php" method="POST">
+<input type="hidden" name="hidden_query" id="hidden_query" value="" />
+<input type="submit" value="submit">
+</form>
 
--->
 
+<!--
 <button onclick="postQuery()"> Click Me </button> <BR><BR>
-
+-->
 
 
 

@@ -581,16 +581,16 @@ $('.set-filters').on('click', function() {
 
 <script>
 
-function myFunction()
-{
-   var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
-   // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
-   console.log("RESULT: " + JSON.stringify(result));
+// function myFunction()
+// {
+//    var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
+//    // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
+//    console.log("RESULT: " + JSON.stringify(result));
 
-   var mongo_result = $('#builder').queryBuilder('getMongo');
-   console.log("MONGO: " JSON.stringify(mongo_result));
+//    var mongo_result = $('#builder').queryBuilder('getMongo');
+//    console.log("MONGO: " JSON.stringify(mongo_result));
 
-}
+// }
 
 function postQuery()
 {

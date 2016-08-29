@@ -184,11 +184,18 @@ var options = {
 
   {
     id: 'date',
-    label: 'datetimepicker',
-    type: 'datetime',
-    optgroup: 'amp'
-    plugin: 'datetimepicker',
+    label: 'Datepicker',
+    type: 'date',
+    validation: {
+      format: 'YYYY/MM/DD'
+    },
+    optgroup: 'amp',
+    plugin: 'datepicker',
     plugin_config: {
+      format: 'yyyy/mm/dd',
+      todayBtn: 'linked',
+      todayHighlight: true,
+      autoclose: true
     }
   }
 

@@ -227,7 +227,7 @@ $('.change-theme').on('click', function() {
 
 
 
-set rules from MongoDB
+// set rules from MongoDB
 $('.set-mongo').on('click', function() {
   $('#builder').queryBuilder('setRulesFromMongo', {"$and":[{"Age":{"$gt":20}},{"Office":"London"}]} );
 });

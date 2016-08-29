@@ -626,11 +626,9 @@ function post(path, params, method)
 
 </script>
 
-<button onclick="myFunction()"> Click Me </button> <BR><BR>
+<button onclick="postQuery()"> Click Me </button> <BR><BR>
 
-<form action="B.php" method="POST">
-<input type="submit" onclick="postQuery()"/>
-</form>
+
 
 
 </body>

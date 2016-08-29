@@ -173,24 +173,33 @@ var options = {
   filters: [
 
   {
-    id: 'name',
-    label: {
-      en: 'Name'
-    },
+    id: 'Name',
+    label: 'Name',
     type: 'string',
     optgroup: 'amp',
     default_value: '',
-    size: 150
+    size: 30
   },
 
   {
-    id: 'price',
-    label: 'Price',
+    id: 'Age',
+    label: 'Age',
     type: 'double',
-    size: 5,
+    optgroup: 'amp',
+    default_value: '20',
+    size: 30,
     validation: {
       min: 0
     }
+  },
+
+  {
+    id: 'Office',
+    label: 'Office',
+    type: 'string',
+    optgroup: 'amp',
+    default_value: 'London',
+    size: 30
   }
 
   ]

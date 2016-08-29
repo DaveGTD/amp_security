@@ -104,7 +104,7 @@ var $b = $('#builder');
 var options = {
   allow_empty: true,
 
-  default_filter: 'name',
+  default_filter: 'Name',
   sort_filters: true,
 
   optgroups: {

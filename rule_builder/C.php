@@ -45,30 +45,7 @@
         <button class="btn btn-primary btn-sm change-theme" data-qb="query-builder.dark.css" data-bt="bower_components_upper/bootstrap/dist/css/bootstrap.min.css">Dark</button>
       </div>
 
-      <label>Language:</label>
-      <select name="language" class="selectpicker show-tick show-menu-arrow" data-width="auto">
-        <option value="sq" data-icon="flag flag-al">Albanian</option>
-        <option value="ar" data-icon="flag flag-ar">Arabic</option>
-        <option value="az" data-icon="flag flag-az">Azerbaijani</option>
-        <option value="cs" data-icon="flag flag-cs">Czech</option>
-        <option value="de" data-icon="flag flag-de">German</option>
-        <option value="da" data-icon="flag flag-dk">Danish</option>
-        <option value="en" data-icon="flag flag-gb" selected>English</option>
-        <option value="es" data-icon="flag flag-es">Spanish</option>
-        <option value="fr" data-icon="flag flag-fr">French</option>
-        <option value="it" data-icon="flag flag-it">Italian</option>
-        <option value="fa-IR" data-icon="flag flag-ir">Farsi</option>
-        <option value="nl" data-icon="flag flag-nl">Dutch</option>
-        <option value="no" data-icon="flag flag-no">Norwegian</option>
-        <option value="pl" data-icon="flag flag-pl">Polish</option>
-        <option value="pt-PT" data-icon="flag flag-pt-PT">Portuguese</option>
-        <option value="pt-BR" data-icon="flag flag-pt-BR">Brazilian Portuguese</option>
-        <option value="ro" data-icon="flag flag-ro">Romanian</option>
-        <option value="ru" data-icon="flag flag-ru">Russian</option>
-        <option value="tr" data-icon="flag flag-tr">Turkish</option>
-        <option value="ua" data-icon="flag flag-ua">Ukrainian</option>
-        <option value="zh-CN" data-icon="flag flag-zh-CN" >Simplified Chinese</option>
-      </select>
+      
     </div>
 
     <div id="builder"></div>
@@ -244,68 +221,68 @@ $('.change-theme').on('click', function() {
 });
 
 // set rules
-$('.set').on('click', function() {
-  $('#builder').queryBuilder('setRules', {
-    condition: 'AND',
-    flags: {
-      condition_readonly: true
-    },
-    rules: [{
-      id: 'price',
-      operator: 'between',
-      value: [10.25, 15.52],
-      flags: {
-        no_delete: true,
-        filter_readonly: true
-      },
-      data: {
-        unit: '€'
-      }
-    }, {
-      id: 'state',
-      operator: 'equal',
-      value: 'AK'
-    }, {
-      condition: 'OR',
-      flags: {
-        no_delete: true
-      },
-      rules: [{
-        id: 'category',
-        operator: 'equal',
-        value: 2
-      }, {
-        id: 'coord',
-        operator: 'equal',
-        value: 'B.3'
-      }]
-    }]
-  });
-});
+// $('.set').on('click', function() {
+//   $('#builder').queryBuilder('setRules', {
+//     condition: 'AND',
+//     flags: {
+//       condition_readonly: true
+//     },
+//     rules: [{
+//       id: 'price',
+//       operator: 'between',
+//       value: [10.25, 15.52],
+//       flags: {
+//         no_delete: true,
+//         filter_readonly: true
+//       },
+//       data: {
+//         unit: '€'
+//       }
+//     }, {
+//       id: 'state',
+//       operator: 'equal',
+//       value: 'AK'
+//     }, {
+//       condition: 'OR',
+//       flags: {
+//         no_delete: true
+//       },
+//       rules: [{
+//         id: 'category',
+//         operator: 'equal',
+//         value: 2
+//       }, {
+//         id: 'coord',
+//         operator: 'equal',
+//         value: 'B.3'
+//       }]
+//     }]
+//   });
+// });
 
 // set rules from MongoDB
-$('.set-mongo').on('click', function() {
-  $('#builder').queryBuilder('setRulesFromMongo', {
-    "$and": [{
-      "name": {
-        "$regex": "^(?!Mistic)"
-      }
-    }, {
-      "price": { "$gte": 0, "$lte": 100 }
-    }, {
-      "$or": [{
-        "category": 2
-      }, {
-        "category": { "$in": [4, 5] }
-      }]
-    }]
-  });
-});
+// $('.set-mongo').on('click', function() {
+//   $('#builder').queryBuilder('setRulesFromMongo', {
+//     "$and": [{
+//       "name": {
+//         "$regex": "^(?!Mistic)"
+//       }
+//     }, {
+//       "price": { "$gte": 0, "$lte": 100 }
+//     }, {
+//       "$or": [{
+//         "category": 2
+//       }, {
+//         "category": { "$in": [4, 5] }
+//       }]
+//     }]
+//   });
+// });
 
 // set rules from SQL
-$('.set-sql').on('click', function() {
-  $('#builder').queryBuilder('setRulesFromSQL', 'name NOT LIKE "Mistic%" AND price BETWEEN 100 AND 200 AND (category IN(1, 2) OR rate <= 2)');
-});
+// $('.set-sql').on('click', function() {
+//   $('#builder').queryBuilder('setRulesFromSQL', 'name NOT LIKE "Mistic%" AND price BETWEEN 100 AND 200 AND (category IN(1, 2) OR rate <= 2)');
+// });
 
 // reset builder
 $('.reset').on('click', function() {

@@ -158,7 +158,7 @@ var options = {
     label: 'Name',
     type: 'string',
     optgroup: 'amp',
-    default_value: '',
+    default_value: 'Bradley Greer',
     size: 30
   },
 
@@ -381,17 +381,20 @@ function doThis()
 
 </script>
 
+<div class="container">
+  <div class="col-md-12 col-lg-10 col-lg-offset-1">
+    <form onsubmit="doThis()" id="form_B" action="B.php" method="POST">
+        <input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
+        <div class="btn-group">
+          <button class="btn btn-danger"> Save As: </button> 
+          <input type="text" name="tag" id="tag" />
+          <br><br>
+          <button class="btn btn-primary" type="submit" value="submit"></button>
+        </div>
 
-<form onsubmit="doThis()" id="form_B" action="B.php" method="POST">
-    <input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
-    <div class="btn-group">
-      <button class="btn btn-danger"> Save As: </button> 
-      &nbsp &nbsp
-      <input type="text" name="tag" id="tag" />
-      <button class="btn btn-primary" type="submit" value="submit"></button>
-    </div>
-
-</form>
+    </form>
+  </div>
+</div>
 
 
 <!--

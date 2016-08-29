@@ -595,7 +595,7 @@ $('.set-filters').on('click', function() {
 function postQuery()
 {
   var mongo_result = $('#builder').queryBuilder('getMongo');
-  post('B.php', {'name': 'Dave', 'query': 'something'});
+  post('B.php', {name: 'Dave', value: 'something'});
 }
 
  

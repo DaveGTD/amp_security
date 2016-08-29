@@ -634,7 +634,7 @@ $("#form_B").submit(function() {
 
 
 <form id="form_B" action="B.php" method="POST">
-<input type="hidden" name="hidden_query" id="hidden_query" value="" />
+<input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
 <input type="submit" value="submit">
 </form>
 

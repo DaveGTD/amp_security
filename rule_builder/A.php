@@ -581,16 +581,18 @@ $('.set-filters').on('click', function() {
 
 <script>
 
-// function myFunction()
-// {
-//    var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
-//    // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
-//    console.log("RESULT: " + JSON.stringify(result));
+/*
 
-//    var mongo_result = $('#builder').queryBuilder('getMongo');
-//    console.log("MONGO: " JSON.stringify(mongo_result));
+function myFunction()
+{
+   var result = $('#builder').queryBuilder('getSQL', $(this).data('stmt'), false);
+   // var result = $('#builder').queryBuilder('getSQL', 'question_mark');
+   console.log("RESULT: " + JSON.stringify(result));
 
-// }
+   var mongo_result = $('#builder').queryBuilder('getMongo');
+   console.log("MONGO: " JSON.stringify(mongo_result));
+
+}
 
 function postQuery()
 {
@@ -629,10 +631,13 @@ $("#form_B").submit(function() {
     var name = "Dave";
     $('#hidden_query').val(name);
 });
+*/
 
 function doThis()
 {
-  document.getElementById("hidden_query").value = "Dave";
+  var mongo_result = $('#builder').queryBuilder('getMongo');
+  document.getElementById("hidden_query").value = JSON.stringify(mongo_result);
+
 };
 
 </script>

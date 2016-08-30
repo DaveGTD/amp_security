@@ -70,7 +70,8 @@ foreach ($output as $row)
 	else
 	{
 		// data rows 
-		$cells = explode(",", $row);
+		
+		$cells = str_getcsv($row);
 		echo "<tr>";
 		foreach ($cells as $cell) 
 		{

@@ -42,7 +42,7 @@ $cmd = "mongo ds011298.mlab.com:11298/amp -u amp -authenticationDatabase amp -p 
 
 exec($cmd, $output, $return_var);
 
-echo $output;
+var_dump($output);
 echo "<br><br>";
 echo $return_var;
 

@@ -38,6 +38,7 @@ $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --jso
 
 exec($cmd, $output, $return_var);
 
+var_dump($output);
 
 /*
 echo "<table>";

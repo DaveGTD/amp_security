@@ -15,11 +15,12 @@ $dbname = "amp";
 $conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
-if ($conn->connect_error) {
+if ($conn->connect_error) 
+{
     die("Connection failed: " . $conn->connect_error);
 } 
 
-$sql = "INSERT INTO amp (tag, query) VALUES ("$tag", "$query_given")";
+$sql = "INSERT INTO calls (tag, query) VALUES ("$tag", "$query_given")";
 
 if ($conn->query($sql) === TRUE) 
 {

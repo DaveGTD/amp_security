@@ -91,7 +91,9 @@ echo "</table>";
 <script>
 
 
-function myFunction(response) {
+function myFunction() 
+{
+	var response = "<?php echo $output ?>";
     var arr = JSON.parse(response);
     var i;
     var out = "<table>";
@@ -114,7 +116,7 @@ function myFunction(response) {
 
 
 <body>
-<button onclick="myFunction(<?php echo $output; ?>)"> View Report! </button>
+<button onclick="myFunction()"> View Report! </button>
 
 <div id="id01"></div>
 </body>

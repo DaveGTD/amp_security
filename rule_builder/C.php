@@ -383,7 +383,7 @@ function doThis()
 
 <div class="container">
   <div class="col-md-12 col-lg-10 col-lg-offset-1">
-    <form onsubmit="doThis()" id="form_B" action="B.php" method="POST">
+    <form onsubmit="doThis()" id="form_B" action="../output_page/D.php" method="POST">
         <input type="hidden" name="hidden_query" id="hidden_query" value="something else" />
         <br><br>
         <div class="btn-group">

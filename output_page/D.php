@@ -38,7 +38,10 @@ $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --csv
 
 exec($cmd, $output, $return_var);
 
-var_dump($output);
-echo "<br><br>";
+foreach ($output as $row)
+{
+	echo $row; 
+	echo "<br>";
+}
 
 ?>

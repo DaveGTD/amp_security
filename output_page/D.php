@@ -100,6 +100,8 @@ echo "</table>";
 <script src="jquery-1.12.3.js"></script>
 <script src="jquery.dataTables.min.js"></script>
 
+<link rel="stylesheet" href="jquery.dataTables.min.css">
+
 <script>
 
   $(document).ready(function()

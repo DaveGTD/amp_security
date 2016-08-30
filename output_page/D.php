@@ -46,7 +46,7 @@ exec($cmd, $output, $return_var);
 
 // var_dump($output);
 
-
+/*
 echo "<table>";
 $row_count = 0;
 foreach ($output as $row)
@@ -85,8 +85,72 @@ foreach ($output as $row)
 echo "</tbody>";
 echo "</table>";
 
-
+*/
 
 
 ?>
+
+<html>
+<head>
+  <title> TermX </title>
+
+</head>
+
+<body>
+<script src="jquery-1.12.3.js"></script>
+<script src="jquery.dataTables.min.js"></script>
+
+<script>
+
+  $(document).ready(function()
+  {
+    $('#example').DataTable();
+  } );
+
+</script>
+
+
+<table id="example" class="display" cellspacing="0" width="100%">
+<?php
+$row_count = 0;
+foreach ($output as $row)
+{
+	if($row_count == 0)
+	{
+		//header row 
+		// $cells = explode(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", $row);
+		// $p = '#(?<=\d|"),#'; 
+		// $cells = preg_split($p, $row);
+		$cells = str_getcsv($row);
+		echo "<thead>";
+		echo "<tr>";
+		foreach ($cells as $cell) 
+		{
+			echo "<th>" . $cell . "</th>";
+		}
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+	}
+	else
+	{
+		// data rows 
+		
+		$cells = str_getcsv($row);
+		echo "<tr>";
+		foreach ($cells as $cell) 
+		{
+			echo "<td>" . $cell . "</td>";
+		}
+		echo "</tr>";
+	}
+	$row_count++;
+}
+echo "</tbody>"
+?>
+</table>
+
+</body>
+
+</html>
 

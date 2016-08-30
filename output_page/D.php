@@ -38,10 +38,7 @@ exec($cmd, $output, $return_var);
 
 foreach($output as $k=>$v)
 {
-	foreach($v as $name=>$value)
-	{
-		echo $value . "&nbsp";
-	}
+	var_dump($v); 
 	echo "<br>";
 }
 

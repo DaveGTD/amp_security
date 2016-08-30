@@ -24,11 +24,23 @@ $sql = "INSERT INTO calls (tag, query) VALUES ('$tag', '$query_given')";
 
 if ($conn->query($sql) === TRUE) 
 {
-   echo "New record created successfully";
-} else {
-   echo "Error: " . $sql . "<br>" . $conn->error;
+   // echo "New record created successfully";
+} 
+else 
+{
+   // echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $conn->close();
+
+// run mongo query and return output 
+
+$mongo_shell = "db.emp.find( $query_given ).pretty()"
+$cmd = "mongo ds011298.mlab.com:11298/amp -u amp -authenticationDatabase amp -p amp amp --eval '".$mongo_shell."'";
+
+exec($cmd, $output, $return_var);
+
+var_dump($output);
+
 
 ?>

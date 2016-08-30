@@ -38,6 +38,8 @@ exec($cmd, $output, $return_var);
 
 $data = json_decode($output);
 
+var_dump($data);
+
 if (count($data->stand)) {
         // Open the table
         echo "<table>";

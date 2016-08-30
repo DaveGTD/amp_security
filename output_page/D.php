@@ -34,11 +34,20 @@ $conn->close();
 
 $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp -q '".$query_given."'";
 
-// $cmd = "mongo ds011298.mlab.com:11298/amp -u amp -authenticationDatabase amp -p amp amp --eval 'db.emp.find( {"$and":[{"Age":{"$gt":20}},{"Office":"London"},{"$and":[{"Name":"Bradley Greer"}]}]}  ).sort({"Age":1}).pretty()'";
-
 exec($cmd, $output, $return_var);
 
-var_dump($output);
+
+
+
+
+
+
+
+
+
+
+
+// var_dump($output);
 
 /*
 echo "<table>";
@@ -77,3 +86,39 @@ echo "</table>";
 */
 
 ?>
+
+<html>
+<script>
+
+
+function myFunction(response) {
+    var arr = JSON.parse(response);
+    var i;
+    var out = "<table>";
+
+    for(i = 0; i < arr.length; i++) {
+        out += "<tr><td>" +
+        arr[i].Name +
+        "</td><td>" +
+        arr[i].City +
+        "</td><td>" +
+        arr[i].Country +
+        "</td></tr>";
+    }
+    out += "</table>";
+    document.getElementById("id01").innerHTML = out;
+}
+
+
+</script>
+
+
+<body>
+<button onclick="myFunction(<?php echo $output; ?>)"> View Report! </button>
+
+<div id="id01"></div>
+</body>
+
+
+
+</html>

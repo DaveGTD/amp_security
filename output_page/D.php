@@ -54,7 +54,8 @@ foreach ($output as $row)
 	if($row_count == 0)
 	{
 		//header row 
-		$cells = explode(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", $row);
+		// $cells = explode(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", $row);
+		$cells = str_getcsv($row, ",", '"');
 		echo "<thead>";
 		echo "<tr>";
 		foreach ($cells as $cell) 

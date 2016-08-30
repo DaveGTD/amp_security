@@ -36,28 +36,10 @@ $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp -q '"
 
 exec($cmd, $output, $return_var);
 
-$data = json_decode($output);
-
-var_dump($data);
-
-if (count($data->stand)) {
-        // Open the table
-        echo "<table>";
-
-        // Cycle through the array
-        foreach ($data->stand as $idx => $stand) {
-
-            // Output a row
-            echo "<tr>";
-            echo "<td>$stand->afko</td>";
-            echo "<td>$stand->positie</td>";
-            echo "</tr>";
-        }
-
-        // Close the table
-        echo "</table>";
-    }
-
+foreach($output as $k=>$v)
+{
+	echo $v . "<br>";
+}
 
 
 

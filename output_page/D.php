@@ -38,10 +38,37 @@ $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --csv
 
 exec($cmd, $output, $return_var);
 
+$row_count = 0;
 foreach ($output as $row)
 {
-	echo $row; 
-	echo "<br>";
+	if($row_count == 0)
+	{
+		//header row 
+		$cells = explode(",", $row);
+		echo "<thead>";
+		echo "<tr>";
+		foreach ($cells as $cell) 
+		{
+			echo "<th>" . $cell . "</th>";
+		}
+		echo "</tr>";
+		echo "</thead>";
+		echo "<tbody>";
+	}
+	else
+	{
+		// data rows 
+		$cells = explode(",", $row);
+		echo "<tr>";
+		foreach ($cells as $cell) 
+		{
+			echo "<td>" . $cell . "</td>";
+		}
+		echo "</tr>";
+	}
+	$row_count++;
 }
+echo "</tbody>";
+
 
 ?>

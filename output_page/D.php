@@ -32,16 +32,10 @@ $conn->close();
 
 // run mongo query and return output 
 
-$cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp -q '".$query_given."'";
+$cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --csv -f Name,Age,Start\ date,Salary -q '".$query_given."'";
 
 exec($cmd, $output, $return_var);
 
-foreach($output as $k=>$v)
-{
-	$v2 = json_encode($v);
-	var_dump($v2); 
-	echo "<br>";
-}
 
 
 
@@ -52,7 +46,7 @@ foreach($output as $k=>$v)
 
 // var_dump($output);
 
-/*
+
 echo "<table>";
 $row_count = 0;
 foreach ($output as $row)
@@ -60,7 +54,7 @@ foreach ($output as $row)
 	if($row_count == 0)
 	{
 		//header row 
-		$cells = explode(",", $row);
+		$cells = explode(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)", $row);
 		echo "<thead>";
 		echo "<tr>";
 		foreach ($cells as $cell) 
@@ -86,7 +80,7 @@ foreach ($output as $row)
 }
 echo "</tbody>";
 echo "</table>";
-*/
+
 
 
 

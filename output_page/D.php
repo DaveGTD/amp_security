@@ -38,6 +38,7 @@ $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --csv
 
 exec($cmd, $output, $return_var);
 
+echo "<table>";
 $row_count = 0;
 foreach ($output as $row)
 {
@@ -69,6 +70,7 @@ foreach ($output as $row)
 	$row_count++;
 }
 echo "</tbody>";
+echo "</table>";
 
 
 ?>

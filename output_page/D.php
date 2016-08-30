@@ -32,12 +32,14 @@ $conn->close();
 
 // run mongo query and return output 
 
-$cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --csv -f Name,Age,Start\ date,Salary -q '".$query_given."'";
+$cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp --json -f Name,Age,Start\ date,Salary -q '".$query_given."'";
 
 // $cmd = "mongo ds011298.mlab.com:11298/amp -u amp -authenticationDatabase amp -p amp amp --eval 'db.emp.find( {"$and":[{"Age":{"$gt":20}},{"Office":"London"},{"$and":[{"Name":"Bradley Greer"}]}]}  ).sort({"Age":1}).pretty()'";
 
 exec($cmd, $output, $return_var);
 
+
+/*
 echo "<table>";
 $row_count = 0;
 foreach ($output as $row)
@@ -71,6 +73,6 @@ foreach ($output as $row)
 }
 echo "</tbody>";
 echo "</table>";
-
+*/
 
 ?>

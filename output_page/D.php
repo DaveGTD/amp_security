@@ -93,7 +93,7 @@ echo "</table>";
 
 function myFunction() 
 {
-	var response = "<?php echo $output ?>";
+	var response = <?php echo $output ?>;
     var arr = JSON.parse(response);
     var i;
     var out = "<table>";

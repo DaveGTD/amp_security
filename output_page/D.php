@@ -36,8 +36,25 @@ $cmd = "mongoexport -h ds011298.mlab.com:11298 -d amp -c emp -u amp -p amp -q '"
 
 exec($cmd, $output, $return_var);
 
+$data = json_decode($output);
 
+if (count($data->stand)) {
+        // Open the table
+        echo "<table>";
 
+        // Cycle through the array
+        foreach ($data->stand as $idx => $stand) {
+
+            // Output a row
+            echo "<tr>";
+            echo "<td>$stand->afko</td>";
+            echo "<td>$stand->positie</td>";
+            echo "</tr>";
+        }
+
+        // Close the table
+        echo "</table>";
+    }
 
 
 
@@ -85,42 +102,7 @@ echo "</tbody>";
 echo "</table>";
 */
 
+
+
 ?>
 
-<html>
-<script>
-
-
-function myFunction() 
-{
-	var response = <?php echo $output ?>;
-    var arr = JSON.parse(response);
-    var i;
-    var out = "<table>";
-
-    for(i = 0; i < arr.length; i++) {
-        out += "<tr><td>" +
-        arr[i].Name +
-        "</td><td>" +
-        arr[i].City +
-        "</td><td>" +
-        arr[i].Country +
-        "</td></tr>";
-    }
-    out += "</table>";
-    document.getElementById("id01").innerHTML = out;
-}
-
-
-</script>
-
-
-<body>
-<button onclick="myFunction()"> View Report! </button>
-
-<div id="id01"></div>
-</body>
-
-
-
-</html>

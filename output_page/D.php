@@ -38,7 +38,8 @@ exec($cmd, $output, $return_var);
 
 foreach($output as $k=>$v)
 {
-	var_dump($v); 
+	$v2 = json_encode($v);
+	var_dump($v2); 
 	echo "<br>";
 }
 
